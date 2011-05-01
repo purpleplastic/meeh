@@ -3,7 +3,7 @@ var exec = require("child_process").exec;
 function start(response) {
   console.log("Request handler 'start' was called.");
 
-  exec("ping -c 1 192.168.0.1", function (error, stdout, stderr) {
+  exec("ls", function (error, stdout, stderr) {
     response.writeHead(200, {"Content-Type": "text/html"});
     response.write(stdout.trim());
     response.end();
