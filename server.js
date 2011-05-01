@@ -1,16 +1,8 @@
-var http = require("http");
-var url = require("url");
+var http = require('http');
 
-function start(route, handle) {
-  function onRequest(request, response) {
-    var pathname = url.parse(request.url).pathname;
-    console.log("Request for " + pathname + " received.");
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World from Duostack!\n');
+}).listen(8124, "127.0.0.1");
 
-    route(handle, pathname, response);
-  }
-
-  http.createServer(onRequest).listen(8888);
-  console.log("Server has started.");
-}
-
-exports.start = start;
+console.log('Server running at http://127.0.0.1:8884/');
